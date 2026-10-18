@@ -1,0 +1,57 @@
+@use "../tools" as *;
+
+:root {
+	--color-0: rgba(0, 0, 0, 0);
+	--color-black: #000;
+	--color-white: #fff;
+	// Colors
+	--main-bg: #f7f9fb;
+	--main-text: #0f1115;
+	--main-text-05: #{rgba(#0f1115, 0.54)};
+	--second-text: #4f5156;
+	--second-accent: #00d2ff;
+	--btn-primary: #5a6bff;
+	--btn-primary-hover: #4657e5;
+	--card-section: #fff;
+	--bd-line: #e6e8eb;
+	--red: #f85356;
+
+	--color-dark-main-text: #fff;
+	--color-dark-second-text: #e2e4e8;
+	--color-gray: #e6e8eb;
+	--color-gray-2: #424657;
+	--color-gray-dark: #333333;
+	
+	--color-light-main-bg: #0d0f12;
+	
+	--accent-gradient: linear-gradient(150deg, #4c6fff 0%, #8254ff 100%);
+	// Layouts
+	--header-height: #{adapt(146, 48)};
+	--section-padding: #{adapt(160, 76)};
+	--section-padding-05: #{adapt(80, 39)};
+
+	--container-width: 1200px;
+	--container-padding: 10px; //! даже если контейнер на весь экран, отступы оставь а ширину сделай на 100%
+
+	// Fonts
+	--font-size-html: 100%; // 1rem = 1px ===> calc(1 / 16 * 100%)
+	--font-size: 1rem;
+	--font-family-main: "Montserrat-VF", "Montserrat", sans-serif;
+	--font-family-title: "Oswald-VF", "Oswald", sans-serif;
+
+	--line-height: 140%;
+	--letter-spacing: auto;
+}
+
+html[data-theme="dark"] {
+	--main-bg: #0d0f12;
+	--main-text: #fff;
+	--main-text-05: #{rgba(#fff, 0.54)};
+	--second-text: #e2e4e8;
+	--second-accent: #00d2ff;
+	--btn-primary: #4c6fff;
+	--btn-primary-hover: #6274ff;
+	--card-section: #14161a;
+	--card-section-06: #{rgba(#14161a, 0.6)};
+	--bd-line: #1f2329;
+}

@@ -1,0 +1,154 @@
+@use "../tools" as *;
+
+.contacts {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 1471px;
+		transform: translateY(0%);
+		background-image: var(--decor-bg);
+		background-position: center center; /* x y */
+		background-size: cover;
+		background-repeat: no-repeat;
+		z-index: -1;
+
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+	&__container {
+	}
+
+	&__list {
+		@include reset-list;
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 32px adapt(90, 32);
+
+		@include media($tablet) {
+			grid-template-columns: 1fr 1.5fr;
+		}
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__item {
+	}
+
+	&__map {
+		&:not(:first-child) {
+			margin-top: 64px;
+		}
+
+		iframe {
+			height: adapt(590, 400);
+			border: none;
+		}
+	}
+}
+
+.contacts-item {
+	@include flex-column;
+	gap: adapt(24, 20);
+	&__title {
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: adapt(24, 20);
+	}
+
+	&__descr {
+		* {
+			line-height: 180%;
+		}
+	}
+
+	&__address {
+		font-style: normal;
+		max-width: 300px;
+	}
+}
+
+.contacts-phones {
+	&__item {
+	}
+
+	&__text {
+		@include reset;
+		font-weight: 400;
+		&:not(:last-child) {
+			margin-bottom: adapt(12, 10);
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: adapt(12, 10);
+	}
+}
+
+.contacts-phones-item {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	max-width: 300px;
+	justify-content: space-between;
+	&__link {
+		font-weight: 600;
+	}
+
+	&__messangers {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-wrap: wrap;
+		@include media($mobile) {
+			gap: 12px;
+		}
+	}
+
+	&__icon-link {
+		text-decoration: none;
+		@include square(30px);
+		@include hover-icon;
+
+		img,
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+
+		//@include media($mobile) {
+		//	@include square(44px);
+		//}
+	}
+}
+
+.contacts-email {
+	&__item {
+	}
+
+	&__link {
+		text-decoration: underline;
+	}
+}
+
+.contacts-item--big {
+	grid-row: 1 / 4;
+	grid-column: 2;
+
+	@include media($mobile) {
+		grid-row: initial;
+		grid-column: initial;
+	}
+}

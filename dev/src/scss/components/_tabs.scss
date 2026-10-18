@@ -1,0 +1,14 @@
+@use "../tools" as *;
+[data-tabs-tab] {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	inset: 0;
+	transition: opacity 0.3s ease;
+}
+
+[data-tabs-tab].is-active {
+	opacity: 1;
+	visibility: visible;
+	position: relative;
+}

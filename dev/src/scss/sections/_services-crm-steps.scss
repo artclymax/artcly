@@ -1,0 +1,45 @@
+@use "../tools" as *;
+@use "../components/typography" as *;
+
+.services-crm-steps {
+	&__container {
+		@include flex-column;
+		gap: adapt(64, 32);
+	}
+
+	&__title {
+	}
+
+	&__list {
+		--min: 420px;
+		gap: adapt(24, 20, $mobile);
+		@include counter(true, ".services-crm-steps-card");
+		@include media($tablet) {
+			--min: 350px;
+		}
+	}
+
+	&__item {
+	}
+}
+
+.services-crm-steps-card {
+	&::before {
+		@extend .title-2;
+		@include flex-center;
+		@include square(adapt(56, 44));
+		border-radius: 50%;
+		background: var(--accent-gradient);
+
+		margin-bottom: adapt(32, 10, $mobile);
+	}
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10, $mobile);
+		}
+	}
+
+	&__descr {
+		color: var(--second-text);
+	}
+}

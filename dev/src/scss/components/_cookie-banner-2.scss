@@ -1,0 +1,93 @@
+@use "../tools" as *;
+
+.cookie-banner {
+	position: fixed;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--color-light);
+	color: inherit;
+	z-index: 9999;
+	border: 2px solid var(--color-accent-2);
+	max-width: 852px;
+
+	@include media($laptop-sm) {
+		max-width: 100%;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		transform: translateX(0);
+	}
+	&.hide {
+		display: none;
+	}
+
+	&__container {
+		padding-block: adapt(24, 16) adapt(24, 10);
+		padding-inline: 16px;
+		display: flex;
+		gap: adapt(60, 16);
+		justify-content: space-between;
+		align-items: center;
+
+		@include media($tablet) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__content {
+		@include reset;
+		flex: 1;
+	}
+	&__title {
+		font-size: adapt(18, 16);
+		font-weight: 400;
+		display: flex;
+		gap: 12px;
+		align-items: center;
+		@include reset;
+		margin-bottom: adapt(15, 12);
+		color: var(--color-dark);
+
+		svg {
+			color: #71c3ce;
+		}
+	}
+
+	&__text {
+		font-weight: 200;
+		@include media($mobile) {
+			font-weight: 400;
+		}
+		a {
+			text-decoration: none;
+			color: inherit;
+			transition: all 0.3s;
+			@include hoverLine(slide, var(--color-accent), 2px);
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		gap: adapt(20, 12);
+		flex: 0 1 270px;
+		@include media($mobile-sm) {
+			flex: 1 1 100%;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+	}
+
+	&__btn.btn {
+		max-width: 100%;
+		width: 100%;
+		flex-shrink: 0;
+		@include media($mobile-sm) {
+			flex: 1;
+			width: 100%;
+			line-height: 110%;
+			max-width: 100%;
+		}
+	}
+}

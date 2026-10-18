@@ -1,0 +1,39 @@
+@use "../tools" as *;
+
+.services-benefits {
+	&__container {
+	}
+
+	&__content {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		max-width: 824px;
+		&:not(:first-child) {
+			margin-top: 24px;
+		}
+	}
+
+	&__list {
+		gap: adapt(24, 20, $tablet);
+		--min: #{calc(var(--container-width) / (var(--cols, 3) + 1))};
+		&:not(:first-child) {
+			margin-top: adapt(64, 32, $mobile);
+		}
+	}
+
+	&__item {
+	}
+}
+
+.services-benefits-item {
+	--width: 30px;
+	gap: 10px;
+	padding: adapt(14, 10);
+}
+.icon--benefits-check {
+	--icon-bg: url('../../../public/images/icons/benefits-check.svg');
+}

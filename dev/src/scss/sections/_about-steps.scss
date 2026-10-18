@@ -1,0 +1,49 @@
+@use "../tools" as *;
+@use "../components/typography" as *;
+
+.about-steps {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 851px;
+		transform: translateY(-10%);
+		background-image: var(--decor-bg);
+		background-position: center center; /* x y */
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__list {
+		--min: #{adapt(210, 162)};
+		gap: 24px adapt(35, 10);
+		@include counter(true, ".about-steps-item", "/");
+	}
+
+	&__item {
+	}
+}
+
+.about-steps-item {
+	@include flex-column;
+	gap: adapt(20, 10);
+	&::before {
+		@extend .title;
+		@extend .title-2;
+	}
+	&__text {
+	}
+}

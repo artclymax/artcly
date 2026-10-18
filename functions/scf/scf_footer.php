@@ -1,0 +1,61 @@
+<?php
+create_options_page(
+	'Подвал',
+	'opt-footer',
+);
+
+create_fields(
+	'Поля - Подвал',
+	'opt-footer',
+	[
+		add_field_repeater(
+			'footer_phones',
+			'Телефон',
+			[
+				add_field_text(
+					'footer_phones_phone',
+					'Номер'
+				)
+			]
+		),
+		add_field_repeater(
+			'footer_emails',
+			'Email',
+			[
+				add_field_text(
+					'footer_emails_email',
+					'Email'
+				)
+			]
+		),
+		add_field_redactor_wysiwyg(
+			'footer_time',
+			'на сайте 24/7'
+		),
+		add_field_repeater(
+			'footer_messengers',
+			'Мессенджеры',
+			[
+				add_field_image(
+					'footer_messengers_image',
+					'Картинка'
+				),
+				add_field_text(
+					'footer_messengers_text',
+					'Номер',
+					'Ватсап (https://wa.me/) Телеграм (https://t.me/+) Вайбер (viber://chat?number=)'
+				),
+			]
+		),
+		add_field_repeater(
+			'footer_links',
+			'Ссылки',
+			[
+				add_field_link(
+					'footer_links_link',
+					'Ссылка'
+				),
+			]
+		),
+	]
+);

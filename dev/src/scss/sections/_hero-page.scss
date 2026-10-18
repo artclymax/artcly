@@ -1,0 +1,43 @@
+@use "../tools" as *;
+
+.hero-page {
+	margin-top: adapt(32, 20);
+	margin-bottom: adapt(44, 32);
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 800px;
+		background-image: var(--decor-bg);
+		background-position: top center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		pointer-events: none;
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+
+	&__container {
+	}
+
+	&__breadcrumbs {
+		&:not(:last-child) {
+			margin-bottom: adapt(90, 45);
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 32);
+		}
+	}
+
+	&__descr {
+		max-width: 900px;
+	}
+}

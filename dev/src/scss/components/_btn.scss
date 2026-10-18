@@ -1,0 +1,172 @@
+@use "../tools" as *;
+
+.btn {
+	--hover-color: var(--btn-primary);
+	--bg-color: var(--btn-primary-hover);
+
+	@include reset;
+	text-decoration: none;
+	border: none;
+	background: transparent;
+	display: inline-flex;
+
+	position: relative;
+	overflow: hidden;
+
+	border-radius: 8px;
+	border: 1px solid var(--bg-color);
+	padding: adapt(14, 14) 34px;
+	background: var(--bg-color);
+
+	transition: all 0.4s;
+
+	font-weight: 600;
+	font-size: rem(14);
+	text-align: center;
+	color: var(--color-dark-main-text);
+
+	//max-width: 230px;
+	//width: 100%;
+
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s;
+
+	@include hover {
+		background: var(--hover-color);
+		transform: translateY(-4px);
+	}
+
+	@include media($mobile-sm) {
+		max-width: 100%;
+		width: 100%;
+	}
+
+	&--stroke {
+		border: 1px solid var(--main-text);
+		background: transparent;
+		color: var(--color-accent);
+		@include hover {
+			background: var(--btn-primary-hover);
+			color: var(--color-white);
+			border-color: var(--btn-primary-hover);
+		}
+	}
+	&--white {
+		border-color: var(--color-white);
+		background: var(--color-white);
+		color: var(--color-dark-2);
+
+		@include hover {
+			background: var(--color-0);
+			color: var(--color-white);
+		}
+	}
+}
+
+.phone-btn {
+	@include reset;
+	background: transparent;
+	border: none;
+	@include square(45px);
+	padding: 2px;
+	flex-shrink: 0;
+	color: var(--color-accent);
+	transition: all 0.3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.home & {
+		//color: var(--color-white);
+	}
+
+	@include media($tablet, min) {
+		display: none;
+	}
+	.open-contacts-box & {
+		transform: rotate(90deg);
+	}
+}
+.burger-btn {
+	@include reset;
+	background: transparent;
+	border: none;
+	@include square(45px);
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 6px;
+	position: relative;
+
+	@include media($tablet, min) {
+		display: none;
+	}
+	span {
+		.open-header-menu & {
+			width: 0;
+		}
+	}
+	span,
+	&::before,
+	&::after {
+		width: 80%;
+		background: var(--accent-gradient);
+		height: 3px;
+		border-radius: 4px;
+		transition: all 0.3s;
+		.open-header-menu & {
+			//background: var(--color-dark-2);
+		}
+		.home & {
+			//background: var(--color-white);
+		}
+	}
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		z-index: 3;
+		top: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 80%;
+		.open-header-menu & {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%) rotate(45deg);
+		}
+	}
+	&::after {
+		top: unset;
+		bottom: 10px;
+
+		.open-header-menu & {
+			position: absolute;
+			bottom: unset;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%) rotate(-45deg);
+		}
+	}
+}
+.link {
+	@include reset;
+	background: transparent;
+	border: none;
+	text-align: left;
+	display: inline-flex;
+	text-decoration: none;
+	color: inherit;
+	transition: all 0.3s;
+	font-family: inherit;
+	@include hover-link;
+}
+
+.link-icon {
+	display: inline-flex;
+	@include hover-icon;
+}

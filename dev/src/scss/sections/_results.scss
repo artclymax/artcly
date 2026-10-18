@@ -1,0 +1,74 @@
+@use "../tools" as *;
+
+.section {
+}
+.results {
+	&__container {
+	}
+
+	&__title {
+		max-width: 800px;
+	}
+
+	&__list {
+		--min: #{adapt(280, 160)};
+		gap: adapt(58, 40) adapt(24, 16);
+	}
+
+	&__item {
+	}
+}
+
+.results-item {
+	position: relative;
+	@include media($mobile) {
+		@include flex-column;
+		align-items: center;
+	}
+	@include media($mobile-sm, min) {
+		@include hover {
+			.results-item__icon {
+				transform: translateY(-8px);
+			}
+			.results-item__hint {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+	&__icon {
+		@include square(88px);
+		margin-bottom: 12px;
+		transition: all 0.3s;
+	}
+
+	&__title {
+		margin-left: 41px;
+		max-width: 220px;
+		font-size: adapt(18, 12);
+		@include media($mobile) {
+			margin-left: unset;
+			text-align: center;
+			max-width: 100%;
+		}
+	}
+
+	&__hint {
+		position: absolute;
+		z-index: 2;
+		top: 66px;
+		left: 40px;
+		width: 100%;
+		transition: all 0.3s;
+		opacity: 0;
+		background: var(--card-section);
+		padding: adapt(16, 12);
+		border-radius: 12px;
+		font-size: 1rem;
+		transform: translateY(-10px);
+	}
+	&__hint-title {
+		margin-bottom: 16px;
+		font-size: adapt(18, 12);
+	}
+}

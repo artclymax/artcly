@@ -1,0 +1,111 @@
+@use "../tools" as *;
+@use "../components/btn" as *;
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100dvh;
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(15px); //50
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 10px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.35s ease;
+
+	.admin-bar & {
+		padding-top: calc(var(--wp-admin--admin-bar--height) + 10px);
+		//top: var(--wp-admin-bar-height);
+		//height: calc(100dvh - var(--wp-admin-bar-height));
+	}
+	&.active-modal {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	&__box {
+		background-color: var(--color-light);
+		background-position: center center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		padding: 20px 10px;
+		overflow: auto;
+		//border-radius: 12px;
+
+		transform: scale(0.8);
+		opacity: 0;
+
+		transition:
+			transform 0.35s cubic-bezier(0.17, 0.67, 0.55, 1.39),
+			opacity 0.3s ease;
+
+		.modal.active-modal & {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	&__close-btn {
+	}
+}
+.modal-close-btn {
+	@include reset;
+	background: transparent;
+	color: var(--color-accent);
+	border: none;
+	padding: 4px;
+	position: absolute;
+	top: adapt(28, 16);
+	right: adapt(24, 12);
+	transition: all 0.3s;
+	@include square(26px);
+
+	svg {
+		width: 100%;
+		height: 100%;
+		transition: all 0.3s;
+	}
+
+	@include hover {
+		opacity: 0.8;
+		svg {
+			transform: rotate(90deg);
+		}
+	}
+}
+.modal {
+	&__box {
+		background-color: var(--card-section);
+		max-width: 486px;
+		width: 100%;
+		padding: adapt(32, 24) adapt(24, 10);
+		border-radius: adapt(32, 16);
+		box-shadow: 0 1px 4px 0 rgba(107, 83, 57, 0.15);
+
+		.modal-close-btn {
+			color: var(--color-gray-6);
+		}
+	}
+	&__title {
+		padding-right: 26px; // для кнопки
+
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
+	&__body {
+	}
+	&__descr-box {
+		&:not(:first-child) {
+			margin-bottom: adapt(24, 12);
+		}
+	}
+	&__form {
+	}
+}

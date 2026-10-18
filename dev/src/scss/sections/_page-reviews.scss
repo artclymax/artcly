@@ -1,0 +1,66 @@
+@use "../tools" as *;
+
+.page-reviews {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 2510px;
+		transform: translateY(-10%);
+		background-image: var(--decor-bg);
+		background-position: top; /* x y */
+		background-size: cover;
+		background-repeat: no-repeat;
+		z-index: -1;
+
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+	&__container {
+	}
+
+	&__list {
+		gap: adapt(44, 32) 24px;
+	}
+
+	&__item {
+	}
+}
+
+.page-reviews-item {
+	&__link-wrapper {
+		text-decoration: none;
+		color: inherit;
+		@include flex-column;
+		gap: adapt(12, 10);
+		@include hover {
+			.page-reviews-item__image img {
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: unset;
+		padding-bottom: 140%;
+		overflow: hidden;
+
+		img {
+			transition: all 0.3s;
+		}
+	}
+
+	&__title {
+		@include hoverSlideBgText(var(--btn-primary), var(--main-text));
+		text-decoration: underline;
+	}
+
+	&__author {
+	}
+}

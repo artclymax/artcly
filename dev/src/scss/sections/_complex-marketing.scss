@@ -1,0 +1,47 @@
+@use "../tools" as *;
+
+.complex-marketing {
+	
+	background-position: bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	@include media($tablet) {
+		background-position: bottom right;
+	}
+
+	@include media($mobile-sm) {
+		background-size: 400%;
+	}
+
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__list {
+		gap: adapt(85, 50) adapt(85, 24, $tablet);
+	}
+
+	&__item {
+	}
+}
+
+.complex-marketing-item {
+	&__icon {
+		@include square(70px);
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	&__descr {
+	}
+}

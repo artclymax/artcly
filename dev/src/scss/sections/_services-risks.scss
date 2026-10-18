@@ -1,0 +1,177 @@
+@use "../tools" as *;
+
+.services-risks {
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		max-width: 540px;
+		&:not(:first-child) {
+			margin-top: 24px;
+		}
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 0.7fr;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 20px;
+		color: var(--second-text);
+
+		&:not(:first-child) {
+			margin-top: 32px;
+		}
+	}
+
+	&__item {
+	}
+
+	&__image {
+		//height: adapt(468, 420);
+		padding-bottom: 60%;
+		--object-fit: contain;
+		--object-pos: bottom;
+		position: relative;
+
+		@include media($mobile) {
+			--object-pos: center;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 170px;
+			background: var(--main-bg);
+			filter: blur(30px);
+			z-index: 3;
+			transform: translateY(50%);
+			border-radius: 50%;
+			@include media($tablet) {
+				transform: translateY(30%);
+			}
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 20%;
+			left: 50%;
+			transform: translate(-50%);
+			@include square(200px);
+			background: #f85356;
+			filter: blur(100px);
+			opacity: 0.4;
+			z-index: -1;
+		}
+	}
+
+	&__content {
+	}
+}
+.services-risk-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	&::before {
+		content: "";
+		flex-shrink: 0;
+		@include square(32px);
+		background-image: url("../../../public/images/icons/risks-icon.svg");
+		background-position: center; /* x y */
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
+.services-risks--center {
+	.services-risks__image {
+		padding-bottom: 100%;
+		&::before {
+			width: 120%;
+		}
+	}
+	.services-risks__title {
+		@include media($tablet, min) {
+			text-align: center;
+		}
+	}
+	.services-risks__descr {
+		margin: 0 auto;
+		max-width: 100%;
+		margin-top: 24px;
+		@include media($tablet, min) {
+			text-align: center;
+		}
+	}
+	.services-risks__wrapper {
+		margin-top: 32px;
+		grid-template-columns: 1fr 1fr 1fr;
+		//gap: 44px;
+		align-items: center;
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+	}
+	.services-risks__list {
+		margin-top: unset;
+		@include media($tablet, min) {
+			gap: 60px;
+			width: 100%;
+		}
+	}
+
+	.services-risks__list--left {
+		@include media($tablet, min) {
+			transform: translateX(44px);
+			.services-risks__item {
+				&:first-child {
+					margin-left: auto;
+				}
+				&:last-child {
+					margin-left: auto;
+				}
+			}
+		}
+	}
+
+	.services-risks__list--right {
+		@include media($tablet, min) {
+			padding-left: 44px;
+			.services-risks__item {
+				margin-left: auto;
+				&:first-child,
+				&:last-child {
+					margin-left: unset;
+				}
+			}
+		}
+	}
+
+	.services-risks__item {
+		text-wrap: balance;
+		@include media($tablet, min) {
+			max-width: 300px;
+		}
+	}
+
+	.services-risks__image {
+		@include media($tablet) {
+			order: 3;
+		}
+	}
+}

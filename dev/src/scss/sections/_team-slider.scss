@@ -1,0 +1,64 @@
+@use "../tools" as *;
+
+.team-slider {
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__swiper-container {
+		--container-width: 1320px;
+
+		display: flex;
+		align-items: center;
+		gap: adapt(24, 10);
+	}
+}
+
+.team-slider-swiper {
+	order: 2;
+	&__wrapper {
+	}
+
+	&__btn {
+		flex-shrink: 0;
+	}
+
+	&__btn-prev {
+		order: 1;
+	}
+
+	&__btn-next {
+		order: 3;
+	}
+}
+
+.team-slider-slide {
+	width: 282px !important;
+	&:not(:last-child) {
+		margin-right: adapt(24, 10);
+	}
+	&__wrapper {
+	}
+
+	&__image {
+		height: 343px;
+		overflow: hidden;
+		border-radius: 15px;
+		&:not(:last-child) {
+			margin-bottom: 23px;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	&__position {
+		@include reset;
+		color: var(--second-text);
+	}
+}

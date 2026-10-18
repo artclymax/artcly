@@ -1,0 +1,63 @@
+@use "../tools" as *;
+
+.hero-404 {
+	position: relative;
+	background-position: center center; /* x y */
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	[data-theme="dark"] & {
+		background-image: var(--bg-dark);
+	}
+	[data-theme="light"] & {
+		background-image: var(--bg-light);
+	}
+
+	@include media($mobile) {
+		background-position: top right; /* x y */
+		[data-theme="dark"] & {
+		background-image: var(--bg-mob-dark);
+	}
+	[data-theme="light"] & {
+		background-image: var(--bg-mob-light);
+	}
+	}
+
+	&__container {
+		position: relative;
+		z-index: 2;
+		padding-block: adapt(80, 60);
+		@include flex-column;
+		gap: 24px;
+		min-height: 90dvh;
+		justify-content: center;
+
+		@include media($mobile) {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			margin-top: adapt(380, 180, $finishBreakpoint, $mobile);
+		}
+	}
+
+	&__body {
+	}
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 14px;
+		}
+	}
+
+	&__descr {
+		max-width: 460px;
+		@include media($mobile) {
+			max-width: 100%;
+		}
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+
+	&__btn {
+	}
+}

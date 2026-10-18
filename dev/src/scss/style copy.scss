@@ -1,0 +1,160 @@
+@use "tools/constants" as *;
+@use "tools/functions" as *;
+@use "tools/mixins" as *;
+
+// LIBS
+@use "base/normalize";
+////@use "../../node_modules/ion-rangeslider/css/ion.rangeSlider.min.css";
+////@use "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css";
+
+// BASE
+////@use "base/fonts";
+@use "base/vars";
+@use "base/resets";
+@use "base/global";
+@use "base/utils";
+////@use "base/_components.scss";
+
+// COMPONENTS
+@use "components/_logo.scss";
+@use "components/_btn.scss";
+@use "components/_icon.scss";
+@use "components/_typography.scss";
+@use "components/_grid.scss";
+//@use "components/_header-menu.scss";
+@use "components/_swiper.scss";
+@use "components/_form.scss";
+//@use "components/_cf-select.scss";
+@use "components/_running-line.scss";
+//@use "components/_scroll-to-top.scss";
+@use "components/_modal.scss";
+@use "components/_cookie-banner.scss";
+//@use "components/_cookie-banner-2.scss";
+@use "components/_navxt_breadcrumbs.scss";
+//@use "components/_wp-block.scss";
+@use "components/_pagination.scss";
+//@use "components/_hero-404.scss";
+//@use "components/_table.scss";
+//@use "components/_footer-menu.scss";
+//@use "components/_form-input.scss";
+//@use "components/_phone-box.scss";
+//@use "components/_swiper-components.scss";
+@use "components/_theme-switcher.scss";
+@use "components/_mega-menu.scss";
+//@use "components/_mega-menu-2.scss";
+@use "components/_tabs.scss";
+
+// SECTIONS
+@use "sections/_phones-box.scss";
+@use "sections/_header.scss";
+@use "sections/_footer.scss";
+@use "sections/_hero-page.scss";
+
+@use "sections/_hero.scss";
+@use "sections/_complex-marketing.scss";
+@use "sections/_section-services.scss";
+@use "sections/_process.scss";
+@use "sections/_results.scss";
+@use "sections/_section-projects.scss";
+@use "sections/_section-reviews.scss";
+@use "sections/_section-about.scss";
+@use "sections/_specialties.scss";
+@use "sections/_section-blog.scss";
+@use "sections/_section-form.scss";
+
+@use "sections/_about-benefits.scss";
+@use "sections/_about-team.scss";
+@use "sections/_team-slider.scss";
+@use "sections/_about-steps.scss";
+
+@use "sections/_contacts.scss";
+@use "sections/_cta-form.scss";
+
+@use "sections/_page-reviews.scss";
+
+@use "sections/_page-projects.scss";
+
+@use "sections/_hero-single-blog.scss";
+@use "sections/_hero-projects-blog.scss";
+
+@use "sections/_single-projects-content.scss";
+
+@use "sections/_hero-thank-you.scss";
+@use "sections/_hero-404.scss";
+
+@use "sections/_hero-single-services.scss";
+@use "sections/_services-risks.scss";
+@use "sections/_services-benefits.scss";
+@use "sections/_services-types.scss";
+@use "sections/_services-approach.scss";
+@use "sections/_services-faq.scss";
+@use "sections/_services-for-whom.scss";
+@use "sections/_services-showcase.scss";
+@use "sections/_services-results.scss";
+@use "sections/_services-features.scss";
+@use "sections/_services-projects-slider.scss";
+@use "sections/_section-cta-form-last.scss";
+@use "sections/_services-crm-certificate.scss";
+@use "sections/_services-about-block.scss";
+@use "sections/_services-benefits-grid.scss";
+@use "sections/_services-prices.scss";
+@use "sections/_services-crm-steps.scss";
+
+@use "sections/_page-services.scss";
+.services-steps {
+	.container {
+		@include flex-column;
+	}
+	&__btn {
+		align-self: center;
+		margin-top: adapt(64, 32);
+	}
+}
+.services-cta-form {
+	&__wrapper {
+		background: var(--bd-line);
+		border-radius: 34px;
+		padding: 40px adapt(24, 10);
+	}
+}
+.container-blog {
+	--container-width: 990px;
+}
+.single-blog-content {
+}
+.block-decor {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 6116px;
+		background-image: var(--decor-bg);
+		background-position: top; /* x y */
+		background-size: cover;
+		background-repeat: repeat;
+		z-index: -1;
+		transform: translateY(-2%);
+		pointer-events: none;
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+}
+#wpadminbar {
+	position: fixed;
+}
+
+//* {
+//	outline: 1px solid red;
+//}
+.open-header-menu body,
+.open-phone-menu body {
+	overflow:hidden;
+}
+.container {
+	max-width: adapt(1180, 340, $finishBreakpoint, 1200);
+}

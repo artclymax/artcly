@@ -1,0 +1,57 @@
+@use "../tools" as *;
+
+.cta-form {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 800px;
+		height: 800px;
+		transform: translate(-40%, -10%);
+		background-image: var(--decor-bg);
+		background-position: top center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		pointer-events: none;
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__form {
+		.form-wrapper {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 32px adapt(45, 24);
+			align-items: center;
+		}
+		.form-wrapper > p {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 32px adapt(45, 24);
+			align-items: center;
+		}
+		.form-wrapper__box {
+			margin: unset;
+		}
+		.wpcf7-form-control-wrap {
+			@include media($mobile-sm) {
+				width: 100%;
+			}
+		}
+		.text-second {
+			@include media($mobile-sm) {
+				flex: 1;
+				font-size: 10px;
+			}
+		}
+	}
+}

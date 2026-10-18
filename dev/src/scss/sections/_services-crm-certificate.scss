@@ -1,0 +1,30 @@
+@use "../tools" as *;
+
+.services-crm-certificate {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 32px;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		color: var(--second-text);
+	}
+
+	&__image {
+		height: adapt(420, 240);
+		--object-fit: contain;
+	}
+}

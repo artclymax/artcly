@@ -1,0 +1,95 @@
+@use "../tools" as *;
+
+.section-services {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: -15%;
+		left: -30%;
+		width: 100%;
+		height: 100%;
+		background-image: var(--decor-1);
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		right: 0;
+		border-radius: 22px;
+		width: 325px;
+		height: 390px;
+		filter: blur(890px);
+		background: #cb6ce6;
+		opacity: 0.9;
+	}
+	&__container {
+		position: relative;
+		z-index: 3;
+	}
+
+	&__title {
+	}
+
+	&__list {
+		gap: adapt(24, 20);
+	}
+
+	&__item {
+	}
+}
+
+.section-services-item {
+	position: relative;
+	@include flex-column;
+	gap: 24px;
+
+	@include hover {
+		transform: translateY(-8px);
+		.section-services-item__link {
+			color: var(--btn-primary-hover);
+		}
+	}
+
+	&__icon {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		flex-grow: 1;
+		font-size: 1rem;
+		ul {
+			@include reset-list;
+			@include flex-column;
+			gap: 10px;
+
+			li {
+				display: flex;
+				gap: 10px;
+				opacity: 0.9;
+				&::before {
+					content: "";
+					@include square(4px);
+					background: var(--main-text);
+					border-radius: 50%;
+					margin-top: 0.5em;
+				}
+			}
+		}
+	}
+
+	&__link {
+		@include absolute-link;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+}

@@ -1,0 +1,28 @@
+.form-field,
+.form-input {
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
+}
+
+/* Класс ошибки, который ставит плагин */
+.form-no-validate {
+	border-color: #e74c3c;
+	box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+/* Сообщение об ошибке (генерируется автоматически) */
+.form-error-msg {
+	display: block;
+	color: #e74c3c;
+	font-size: 0.85rem;
+	margin-top: 4px;
+}
+
+/* Заблокированная кнопка */
+button[type="submit"]:disabled,
+input[type="submit"]:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}

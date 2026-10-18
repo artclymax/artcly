@@ -1,0 +1,93 @@
+@use "../tools" as *;
+.section-form {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%) translateX(-110%);
+		left: container-padding();
+		width: 213px;
+		height: 83px;
+		//background-color: #fff;
+		background-image: var(--decor-bg);
+		background-position: center center; /* x y */
+		background-size: contain;
+		background-repeat: no-repeat;
+		
+	}
+	&__container {
+	}
+
+	&__body {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: adapt(36, 24);
+		border-radius: adapt(34, 16);
+		background: var(--bd-line);
+		padding: 10px;
+		padding-left: 24px;
+
+		@include media($mobile) {
+			padding: 20px 10px;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__content {
+		flex: 0 1 530px;
+		@include flex-column;
+		gap: 32px adapt(40, 20);
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		ul {
+			@include reset-list;
+			@include flex-column;
+			gap: adapt(24, 10);
+
+			li {
+				display: flex;
+				gap: 10px;
+				&::before {
+					content: "";
+					height: 12px;
+					width: 26px;
+					background-image: url("../../../public/images/icons/arrow-bullet.svg");
+					background-position: center center; /* x y */
+					background-size: contain;
+					background-repeat: no-repeat;
+					margin-top: 0.3em;
+				}
+			}
+		}
+	}
+
+	&__form {
+		flex: 0 1 600px;
+		width: 100%;
+		background-color: var(--card-section);
+		border-radius: adapt(32, 12);
+		padding: adapt(32, 16) adapt(24, 16);
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__subtitle {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	.form-section-wrapper {
+	}
+}

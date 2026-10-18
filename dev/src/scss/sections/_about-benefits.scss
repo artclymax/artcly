@@ -1,0 +1,65 @@
+@use "../tools" as *;
+
+.about-benefits {
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 800px;
+		background-image: var(--decor-bg);
+		background-position: top center;
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+	&__container {
+	}
+
+	&__title {
+		max-width: 866px;
+	}
+
+	&__list {
+		gap: adapt(24, 20);
+	}
+
+	&__item {
+	}
+}
+
+.about-benefits-item {
+	position: relative;
+	padding: adapt(32, 10);
+	@include flex-column;
+	gap: adapt(20, 10);
+
+	&__images {
+		@include square(88px);
+	}
+
+	&__title {
+		text-wrap: balance;
+	}
+
+	&__descr {
+	}
+
+	&__decor-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		--object-fit: contain;
+	}
+}
+
+.about-benefits-item--decor-image {
+	min-height: 250px;
+}

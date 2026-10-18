@@ -1,0 +1,33 @@
+@use "../tools" as *;
+
+.services-features {
+	&__container {
+		@include flex-column;
+		gap: adapt(64, 32);
+	}
+
+	&__title {
+	}
+
+	&__list {
+		gap: adapt(32, 24) 24px;
+	}
+
+	&__item {
+	}
+}
+
+.services-features-item {
+	@include flex-column;
+	gap: adapt(12, 10);
+
+	&__image {
+		@include square(96px);
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+}

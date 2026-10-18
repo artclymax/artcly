@@ -1,0 +1,63 @@
+@use "../tools" as *;
+@use "../components/grid" as *;
+@use "../components/icon" as *;
+@use "../sections/services-benefits" as *;
+
+.services-results {
+	&__container {
+		@include flex-column;
+		gap: adapt(64, 32, $tablet);
+	}
+
+	&__title {
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 0.8fr;
+		gap: 40px 60px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(24, 20, $tablet);
+	}
+
+	&__image {
+		padding-bottom: 100%;
+	}
+
+	&__list {
+		ul {
+			@extend .grid;
+			gap: adapt(24, 20, $tablet);
+			--min: 230px;
+
+			li {
+				@extend .services-benefits-item;
+				@extend .light-glass-card;
+				@extend .icon;
+				@extend .icon--benefits-check;
+			}
+		}
+	}
+
+	&__note {
+		text-wrap: balance;
+		@extend .services-benefits-item;
+		@extend .light-glass-card;
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		strong {
+			color: var(--btn-primary);
+		}
+	}
+}

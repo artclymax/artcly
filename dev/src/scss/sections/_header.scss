@@ -1,0 +1,193 @@
+@use "../tools" as *;
+
+.header {
+	background: var(--card-section);
+	color: var(--second-text);
+	box-shadow: 0 4px 35px 0 rgba(76, 111, 255, 0.2);
+	border-bottom: 1px solid var(--bd-line);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 55;
+	.admin-bar & {
+		top: var(--wp-admin--admin-bar--height);
+	}
+	&__container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__top {
+		padding-block: adapt(12, 2);
+		border-bottom: 1px solid var(--bd-line);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+
+		@include media($tablet) {
+			gap: 0;
+		}
+	}
+
+	&__logo {
+		@include media($tablet) {
+			margin-right: auto;
+		}
+	}
+
+	&__time {
+		font-size: rem(14);
+	}
+
+	&__time-title {
+		@include reset;
+		font-weight: 600;
+	}
+
+	&__time-descr {
+		@include reset;
+	}
+	&__theme-switcher {
+	}
+
+	&__contacts {
+		@include reset;
+		list-style-type: none;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	&__contacts-item {
+	}
+
+	&__btn {
+	}
+
+	&__phone-btn {
+	}
+
+	&__burger-btn {
+	}
+
+	&__menu {
+	}
+
+	&__phones-menu {
+	}
+}
+
+.header-contacts-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	&__link {
+		text-decoration: none;
+		color: inherit;
+		flex-shrink: 0;
+		font-size: rem(16);
+		font-weight: 600;
+		@include hover-link;
+		//@include hoverSlideBg(var(--main-text), var(--btn-primary-hover))
+	}
+	&__messengers {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+	&__link-icon {
+		flex-shrink: 0;
+		text-decoration: none;
+		color: inherit;
+		@include square(24px);
+		border-radius: 50%;
+		overflow: hidden;
+
+		@include hover-icon;
+	}
+}
+
+.header-menu {
+	@include media($tablet) {
+		--height: var(--header-height);
+		box-shadow: inset 0 10px 30px -10px rgba(76, 111, 255, 0.2);
+		padding: 15px 10px 30px;
+		position: fixed;
+		left: 0;
+		width: 100%;
+		background: var(--card-section);
+		z-index: 2;
+		top: var(--height);
+		height: calc(100dvh - var(--height));
+		display: flex;
+		flex-direction: column;
+		//justify-content: space-between;
+		gap: 60px;
+		overflow-y: auto;
+		transform: translateY(-100%);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: all 0.3s;
+
+		.open-header-menu & {
+			transform: translateY(0%);
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+
+		.admin-bar & {
+			--height: calc(var(--header-height) + var(--wp-admin--admin-bar--height));
+		}
+	}
+
+	&__box {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		justify-content: space-between;
+	}
+}
+
+.phones-menu {
+	--height: var(--header-height);
+	box-shadow: inset 0 10px 30px -10px rgba(76, 111, 255, 0.2);
+	padding: 30px 20px 30px;
+	position: fixed;
+	left: 0;
+	width: 100%;
+	background: var(--card-section);
+	z-index: 2;
+	top: var(--height);
+	height: calc(100dvh - var(--height));
+	display: flex;
+	flex-direction: column;
+	//justify-content: space-between;
+	gap: 24px;
+	overflow-y: auto;
+	transform: translateY(-100%);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: all 0.3s;
+	color: var(--main-text);
+
+	.open-phone-menu & {
+		transform: translateY(0%);
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	.admin-bar & {
+		--height: calc(var(--header-height) + var(--wp-admin--admin-bar--height));
+	}
+	&__btn {
+		flex-shrink: 0;
+	}
+}
+.main {
+}

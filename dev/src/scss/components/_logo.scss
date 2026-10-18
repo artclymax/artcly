@@ -1,0 +1,54 @@
+@use "../tools" as *;
+
+.logo {
+	--gap: #{adapt(12, 8)};
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	gap: var(--gap);
+	
+	&.logo--footer {
+		flex-direction: column;
+		align-items: flex-start;
+		--gap: 4px;
+
+		.logo__descr {
+			font-size: 12px;
+			padding-left: unset;
+			border: none;
+		}
+
+		a {
+			width: 158px;
+		}
+	}
+
+	a {
+		flex-shrink: 0;
+		width: adapt(142, 98);
+		display: inline-flex;
+		align-items: center;
+		transition: all 0.3s;
+
+		img {
+			width: 100%;
+		}
+		@include hover {
+			transform: scale(1.04);
+		}
+	}
+
+	&__descr {
+		@include reset;
+		max-width: adapt(210, 160, $tablet);
+		//text-wrap: balance;
+		font-size: adapt(14, 8);
+		color: var(--second-text);
+		border-left: 1px solid var(--main-text-05);
+		padding-left: var(--gap);
+
+		@include media($tablet) {
+			max-width: adapt(160, 120, $finishBreakpoint, $tablet)
+		}
+	}
+}

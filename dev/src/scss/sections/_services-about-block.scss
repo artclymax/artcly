@@ -1,0 +1,56 @@
+@use "../tools" as *;
+.services-about-block {
+	&__container {
+		display: grid;
+		grid-template-columns: 0.7fr 1fr;
+		gap: 32px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__title {
+	}
+
+	&__list {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__item {
+		padding-bottom: 20px;
+		position: relative;
+		color: var(--second-text);
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: var(--main-text);
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 1px;
+			background: linear-gradient(
+				90deg,
+				rgba(255, 255, 255, 0) 5%,
+				var(--main-text) 19.66%,
+				var(--main-text) 80.15%,
+				rgba(255, 255, 255, 0) 95%
+			);
+			width: 110%;
+		}
+		&:last-child {
+			&::after {
+				display: none;
+			}
+		}
+	}
+}

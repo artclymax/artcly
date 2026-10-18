@@ -1,0 +1,138 @@
+@use "../tools" as *;
+
+.hero-thank-you {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	overflow: hidden;
+	color: var(--color-white);
+
+	&__container {
+		padding-block: adapt(80, 60);
+		@include flex-column;
+		gap: 24px;
+		min-height: 80dvh;
+		justify-content: center;
+
+		@include media($mobile) {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+	}
+
+	&__body {
+		//flex: 0 1 700px;
+		max-width: 700px;
+		@include media($mobile) {
+			//flex: 1;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 14px;
+		}
+	}
+
+	&__descr {
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 14);
+		}
+	}
+
+	&__form {
+		@include flex-column;
+		gap: 14px;
+
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+
+	&__form-title {
+	}
+
+	&__form-item {
+		display: flex;
+		gap: 8px;
+	}
+
+	&__form-key {
+	}
+
+	&__form-value {
+	}
+
+	&__form-value-list {
+		@include reset-list;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		* {
+			font-size: 0;
+			&::after {
+				content: "";
+				display: flex;
+				flex-shrink: 0;
+				@include square(24px);
+				background-color: var(--bd-line);
+				background-image: var(--bg-icon, url("../../../public/images/icons/phone-mini--dark.svg"));
+				background-position: center; /* x y */
+				background-size: 70%;
+				background-repeat: no-repeat;
+				border-radius: 50%;
+				[data-theme="light"] & {
+					background-image: var(--bg-icon, url("../../../public/images/icons/phone.svg"));
+				}
+				[data-theme="dark"] & {
+					background-image: var(--bg-icon, url("../../../public/images/icons/phone--dark.svg"));
+				}
+			}
+			&.viber {
+				--bg-icon: var(--vb);
+				&::after {
+					background-size: 110%;
+				}
+			}
+			&.telegram {
+				--bg-icon: url("../../../public/images/icons/tg.svg");
+				&::after {
+					background-size: 110%;
+				}
+			}
+			&.whatsapp {
+				--bg-icon: url("../../../public/images/icons/wh.svg");
+				&::after {
+					background-size: 110%;
+				}
+			}
+		}
+	}
+
+	&__form-small {
+		font-size: rem(14);
+	}
+
+	&__btn-box {
+		display: flex;
+		gap: adapt(40, 12);
+		align-items: center;
+	}
+
+	&__btn {
+		min-width: 195px;
+
+		@include media($mobile) {
+			min-width: auto;
+			padding-inline: 8px;
+		}
+	}
+}
+
+.btn {
+}
+.btn--stroke {
+}

@@ -1,0 +1,81 @@
+@use "../tools" as *;
+
+.section-reviews {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 607px;
+		height: 607px;
+		transform: translateY(50%);
+		background-image: var(--decor-bg);
+		background-position: center center; /* x y */
+		background-size: cover;
+		background-repeat: no-repeat;
+		pointer-events: none;
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+	&__container {
+		@include flex-column;
+	}
+
+	&__title {
+	}
+
+	&__btn {
+		align-self: center;
+		margin-top: adapt(64, 40);
+		max-width: 280px;
+		width: 100%;
+
+		@include media($mobile-sm) {
+			max-width: 100%;
+		}
+	}
+
+	&__slider {
+		position: relative;
+	}
+}
+
+.section-reviews-swiper {
+	&__wrapper {
+	}
+
+	&__pagination {
+		margin-top: 24px;
+	}
+
+	&__btn {
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__btn-prev {
+		left: -60px;
+		@include media($laptop-sm) {
+			left: 0;
+		}
+	}
+
+	&__btn-next {
+		right: -60px;
+		@include media($laptop-sm) {
+			right: 0;
+		}
+	}
+}
+
+.section-reviews-slide {
+	&__wrapper-link {
+		height: adapt(416, 300);
+		--object-pos: top;
+	}
+}

@@ -1,0 +1,56 @@
+@use "../tools" as *;
+
+.phones-box {
+	@include reset-list;
+	@include flex-column;
+	gap: 24px;
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	&__title {
+		@include reset;
+		font-weight: 400;
+		font-size: adapt(18, 16);
+	}
+
+	&__list {
+		@include reset-list;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+}
+
+.phones-item {
+	display: flex;
+	justify-content: space-between;
+	gap: 24px;
+	align-items: center;
+
+	&__link {
+		text-decoration: none;
+		color: inherit;
+		font-weight: 600;
+		font-size: rem(18);
+		@include hover-link;
+	}
+	&__messengers {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		align-items: center;
+
+		@include media($mobile) {
+			gap: 12px;
+		}
+	}
+	&__link-icon {
+		display: inline-flex;
+		@include square(30px);
+		@include hover-icon;
+	}
+}

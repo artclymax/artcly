@@ -1,0 +1,93 @@
+@use "../tools" as *;
+
+.section-about {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	@include media($tablet) {
+		background-position: top right;
+	}
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 32px 24px;
+		align-items: center;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__descr {
+		ul {
+			@include reset-list;
+			@include flex-column;
+			gap: 10px;
+			font-weight: 600;
+
+			li {
+				display: flex;
+				gap: 10px;
+				opacity: 0.9;
+				&::before {
+					content: "";
+					@include square(4px);
+					background: var(--main-text);
+					border-radius: 50%;
+					margin-top: 0.5em;
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+
+	&__list {
+		--min: #{adapt(280, 180)};
+		gap: adapt(24, 8);
+		@include media($mobile-sm) {
+			--min: 150px;
+		}
+	}
+
+	&__item {
+	}
+
+	&__btn {
+		justify-self: center;
+		grid-column: 1 / -1;
+		max-width: 280px;
+		width: 100%;
+		margin-top: 32px;
+		@include media($mobile-sm) {
+			max-width: 100%;
+			margin-top: unset;
+		}
+	}
+}
+
+.section-about-item {
+	@include flex-column;
+	gap: adapt(14, 8);
+	padding: adapt(24, 10);
+
+	&__title {
+		@include reset;
+		font-weight: 500;
+		font-size: adapt(56, 40);
+		line-height: 1;
+		@include gradient-text(var(--accent-gradient));
+	}
+
+	&__descr {
+		font-size: adapt(16, 14);
+	}
+}

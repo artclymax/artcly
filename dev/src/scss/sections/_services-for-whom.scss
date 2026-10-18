@@ -1,0 +1,90 @@
+@use "../tools" as *;
+
+.services-for-whom {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 0.7fr;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		&:not(:first-child) {
+			margin-top: 32px;
+		}
+
+		ul {
+			@include reset-list;
+			@include flex-column;
+			gap: 10px;
+
+			li {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+
+				&::before {
+					content: "";
+					flex-shrink: 0;
+					@include square(32px);
+					background-image: url("../../../public/images/icons/benefits-check.svg");
+					background-position: center; /* x y */
+					background-size: contain;
+					background-repeat: no-repeat;
+				}
+			}
+		}
+	}
+
+	&__image {
+		padding-bottom: 60%;
+		--object-fit: contain;
+		--object-pos: bottom;
+		position: relative;
+
+		@include media($mobile) {
+			margin-top: 24px;
+			padding-bottom: 100%;
+			--object-pos: center;
+		}
+
+		&.image-effects {
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 170px;
+				background: var(--main-bg);
+				filter: blur(30px);
+				z-index: 3;
+				transform: translateY(50%);
+				border-radius: 50%;
+				@include media($tablet) {
+					transform: translateY(30%);
+				}
+			}
+			&::after {
+				content: "";
+				position: absolute;
+				top: 20%;
+				left: 50%;
+				transform: translate(-50%);
+				@include square(200px);
+				background: var(--btn-primary-hover);
+				filter: blur(100px);
+				opacity: 0.6;
+				z-index: -1;
+			}
+		}
+	}
+}

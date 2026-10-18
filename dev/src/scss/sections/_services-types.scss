@@ -1,0 +1,65 @@
+@use "../tools" as *;
+
+.services-types {
+	&__container {
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(64, 32);
+		}
+	}
+
+	&__descr {
+	}
+
+	&__list {
+		gap: adapt(24, 20, $tablet);
+		--min: #{calc(var(--container-width) / (var(--cols, 3) + 1))};
+	}
+
+	&__item {
+	}
+}
+
+.services-types-item {
+	@include flex-column;
+	height: 100%;
+	gap: 20px;
+	&.col-2 {
+		@include media($mobile, min) {
+			grid-column: span 2;
+			align-items: start;
+		}
+	}
+
+	&.col-3 {
+		@include media($mobile, min) {
+			grid-column: span 3;
+			align-items: start;
+		}
+	}
+
+	&__image {
+		@include square(88px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		color: var(--second-text);
+		flex-grow: 1;
+	}
+
+	&__btn {
+	}
+}
+
+.services-types-item-image {
+	padding: unset;
+	padding-bottom: 90%;
+}

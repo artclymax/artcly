@@ -1,0 +1,47 @@
+@use "../tools" as *;
+
+.hero-404 {
+	margin-top: var(--header-height);
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(44, 24);
+		}
+	}
+
+	&__404 {
+		font-weight: 600;
+		font-size: adapt(240, 120);
+		line-height: 0.7;
+		color: var(--color-gray-2);
+		
+		&:not(:last-child) {
+			margin-bottom: adapt(32, 24);
+		}
+	}
+
+	&__descr-box {
+		&:not(:last-child) {
+			margin-bottom: adapt(32, 24);
+		}
+	}
+
+	&__btn {
+	}
+}
+.container {
+}
+.title-2 {
+}
+.mb-l {
+}
+.descr-box {
+}
+.btn {
+}

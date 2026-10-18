@@ -1,0 +1,76 @@
+@use "../tools" as *;
+
+.services-showcase {
+	&__container {
+		&:not(:last-child) {
+			margin-bottom: adapt(64, 32);
+		}
+	}
+
+	&__title {
+	}
+
+	&__swiper-container {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+	}
+}
+
+.services-showcase-swiper {
+	width: 100%;
+	order: 2;
+	&__wrapper {
+	}
+
+	&__pagination {
+		margin-top: 24px;
+	}
+
+	&__btn {
+		flex-shrink: 0;
+	}
+
+	&__btn-prev {
+		order: 1;
+	}
+
+	&__btn-next {
+		order: 3;
+	}
+}
+
+.services-showcase-slide {
+	width: 380px !important;
+
+	@include media($tablet) {
+		width: 340px !important;
+	}
+
+	&__wrapper {
+		@include flex-column;
+		gap: adapt(12, 10);
+	}
+
+	&__image {
+		height: 210px;
+		border-radius: 12px;
+		overflow: hidden;
+	}
+
+
+	&__title {
+	}
+
+	&__descr {
+		color: var(--second-text);
+	}
+}
+
+.swiper-btn {
+	&__prev {
+	}
+
+	&__next {
+	}
+}

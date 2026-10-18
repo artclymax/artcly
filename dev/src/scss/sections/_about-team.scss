@@ -1,0 +1,81 @@
+@use "../tools" as *;
+
+.about-team {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 1239px;
+		background-image: var(--decor-bg);
+		background-position: center center; /* x y */
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		@include media($mobile) {
+			background-position: top right;
+		}
+	}
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		@include media($tablet) {
+			grid-template-columns: 1fr 1.5fr;
+		}
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
+	}
+
+	&__content {
+	}
+
+	&__descr {
+		max-width: 546px;
+		@include media($mobile) {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__mini-gallery {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: adapt(24, 8);
+		align-self: end;
+	}
+
+	&__mini-image {
+		height: 216px;
+		border-radius: adapt(20, 16);
+		overflow: hidden;
+
+		@include media($mobile) {
+			height: 126px;
+		}
+	}
+
+	&__image {
+		min-height: 463px;
+		grid-row: span 2;
+		border-radius: adapt(20, 16);
+		overflow: hidden;
+
+		@include media($mobile) {
+			margin-bottom: adapt(24, 8);
+		}
+		@include media($mobile-sm) {
+			min-height: 268px;
+		}
+	}
+}

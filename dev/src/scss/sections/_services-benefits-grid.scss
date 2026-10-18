@@ -1,0 +1,37 @@
+@use "../tools" as *;
+
+.services-benefits-grid {
+	&__container {
+		@include flex-column;
+		gap: adapt(64, 32);
+	}
+
+	&__title {
+	}
+
+	&__list {
+		gap: 24px;
+	}
+
+	&__item {
+	}
+
+	.services-showcase-slide {
+		width: 100% !important;
+		&__wrapper {
+		}
+
+		&__image {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+		}
+
+		&__title {
+		}
+
+		&__descr {
+			font-size: 16px;
+		}
+	}
+}

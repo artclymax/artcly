@@ -1,0 +1,83 @@
+@use "../tools" as *;
+
+.services-prices {
+	&__container {
+		@include flex-column;
+		gap: adapt(64, 32);
+	}
+
+	&__title {
+	}
+
+	&__item {
+	}
+}
+
+.services-prices-card {
+	@include flex-column;
+	height: 100%;
+	min-height: adapt(490, 386, $tablet);
+	position: relative;
+	&__image {
+		@include square(100px);
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	&__descr {
+		color: var(--second-text);
+		flex-grow: 1;
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__limits {
+		@include gradient-text(var(--accent-gradient));
+
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	&__size {
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__btn {
+	}
+}
+
+.services-prices-swiper {
+	width: 100%;
+	margin-top: -10px;
+	&__wrapper {
+	}
+
+	&__pagination {
+	}
+}
+
+.services-prices-slide {
+	width: 280px !important;
+	padding-top: 10px;
+	&__wrapper {
+		text-decoration: none;
+		color: inherit;
+		transition: all 0.3s;
+		
+		@include hover {
+			transform: translateY(-10px);
+		}
+	}
+}

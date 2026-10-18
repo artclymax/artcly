@@ -1,0 +1,120 @@
+@use "../tools" as *;
+
+.process {
+	background-position: bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		border-radius: 22px;
+		width: 580px;
+		height: 498px;
+		filter: blur(891px);
+		background: #605eb3;
+		opacity: 0.46;
+	}
+	@include media($tablet) {
+		background-position: bottom right;
+	}
+	@include media($mobile-sm) {
+		background-position: top right;
+
+		background-size: 300%;
+	}
+	&__container {
+		position: relative;
+		z-index: 3;
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__title {
+		//text-wrap: balance;
+	}
+
+	&__descr {
+		max-width: adapt(660, 500);
+
+		@include media($mobile-sm) {
+			margin-right: 20px;
+		}
+	}
+
+	&__list {
+		gap: adapt(24, 12);
+		--min: #{adapt(580, 350)};
+		@include counter(true, ".process__item");
+	}
+
+	&__item {
+	}
+}
+
+.process-item {
+	position: relative;
+	transition: all 0.3s;
+	@include hover {
+		transform: translateY(-8px);
+	}
+	&::before {
+		position: absolute;
+		top: adapt(35, 27);
+		right: adapt(24, 16);
+		font-weight: 500;
+		opacity: 0.9;
+		font-size: adapt(56, 40);
+		@include gradient-text(var(--accent-gradient));
+		line-height: 1;
+		@include media($mobile) {
+			//top: adapt(24, 16);
+			position: static;
+			display: inline-flex;
+			margin-bottom: 12px;
+		}
+	}
+	&__title {
+		margin-right: 60px;
+		max-width: 385px;
+		margin-block: adapt(11, 0, $mobile);
+		min-height: 60px;
+		display: flex;
+		align-items: center;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+		@include media($mobile) {
+			max-width: 100%;
+			margin-right: unset;
+			min-height: initial;
+		}
+	}
+
+	&__descr {
+		ul {
+			@include reset-list;
+			@include flex-column;
+			gap: 10px;
+
+			li {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+
+				&::before {
+					content: "";
+					@include square(adapt(12, 8));
+					background: var(--accent-gradient);
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+}

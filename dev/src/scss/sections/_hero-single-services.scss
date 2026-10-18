@@ -1,0 +1,124 @@
+@use "../tools" as *;
+
+.hero-single-services {
+	&__container {
+		padding-top: adapt(32, 24, $mobile);
+		padding-bottom: adapt(150, 40, $mobile);
+		min-height: 56dvh;
+		@include flex-column;
+		gap: 32px;
+
+		@include media($mobile) {
+			gap: 42px;
+		}
+	}
+
+	&__breadcrumbs {
+		color: var(--color-dark-second-text);
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 380px;
+		align-items: start;
+		gap: 32px adapt(100, 24, $tablet);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		padding-top: 28px;
+		gap: 24px;
+		@include media($mobile) {
+			padding-top: 0;
+		}
+	}
+
+	&__title {
+		color: var(--color-dark-main-text);
+		font-size: adapt(43, 30);
+	}
+
+	&__descr {
+		max-width: 640px;
+		color: var(--color-dark-second-text);
+	}
+
+	&__form {
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		--bg-overlay:
+			linear-gradient(
+				90deg,
+				#000 0%,
+				rgba(0, 0, 0, 0.9) 18.07%,
+				rgba(0, 0, 0, 0.8) 39.85%,
+				rgba(0, 0, 0, 0.7) 61.76%,
+				rgba(0, 0, 0, 0.6) 83.54%,
+				rgba(0, 0, 0, 0.5) 100%
+			),
+			linear-gradient(
+				272deg,
+				rgba(0, 0, 0, 0.73) 0%,
+				rgba(0, 0, 0, 0.73) 9.14%,
+				rgba(0, 0, 0, 0.73) 23.94%,
+				rgba(0, 0, 0, 0.73) 38%,
+				rgba(0, 0, 0, 0.73) 59.09%,
+				rgba(0, 0, 0, 0.73) 100%
+			);
+		@include overlay(var(--bg-overlay), 0.76);
+	}
+}
+
+.hero-form {
+	backdrop-filter: blur(10px);
+	box-shadow:
+		0 4px 4px 0 rgba(0, 0, 0, 0.25),
+		inset -9px -11px 28px 0 rgba(255, 255, 255, 0.13);
+	background: rgba(20, 22, 26, 0.6);
+	border-radius: 12px;
+	padding: adapt(20, 16, $tablet);
+	color: var(--color-dark-second-text);
+
+	&__title {
+		color: var(--color-dark-main-text);
+
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	&__descr {
+		font-size: adapt(16, 14);
+		color: var(--color-dark-second-text);
+
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__form {
+	}
+
+	.form-input {
+		border-color: rgba(#fff, 0.54);
+	}
+
+	.wpcf7-form-control-wrap[data-name^="acceptance"] .wpcf7-list-item-label .form-checkbox-text {
+		color: var(--color-dark-second-text);
+
+		a {
+			@include hoverSlideBgText(var(--color-dark-second-text), var(--btn-primary-hover));
+		}
+	}
+}

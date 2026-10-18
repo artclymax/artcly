@@ -1,0 +1,80 @@
+@use "../tools" as *;
+
+.page-services {
+	&__container {
+		@include flex-column;
+		gap: adapt(64, 32);
+	}
+
+	&__list {
+	}
+
+	&__item {
+	}
+
+	&__pagination {
+	}
+}
+
+.category-select {
+	&__current {
+	}
+
+	&__list {
+	}
+
+	&__item {
+	}
+
+	&__link {
+	}
+}
+
+.projects-category {
+	&__item {
+	}
+
+	&__link {
+	}
+}
+
+.section-projects-card {
+	@include flex-column;
+	gap: 16px;
+	height: 100%;
+	transition: all 0.3s;
+
+	@include hover {
+		transform: translateY(-10px);
+	}
+	&__category {
+		@include flex-column;
+		gap: 4px;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			font-weight: 600;
+			@include gradient-text(var(--accent-gradient));
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+		color: inherit;
+		@include flex-column;
+		gap: 32px;
+		height: 100%;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		flex-grow: 1;
+		margin-bottom: 32px;
+	}
+
+	&__btn {
+	}
+}

@@ -1,0 +1,46 @@
+@use "../tools" as *;
+
+.single-blog-grid {
+	&__container {
+		display: grid;
+		gap: adapt(64, 44);
+	}
+
+	&__item {
+		display: flex;
+		gap: 24px;
+
+		@include media($mobile) {
+			flex-direction: column-reverse;
+		}
+	}
+
+	&__descr {
+		flex: 1;
+	}
+}
+
+.single-blog-grid__item--reverse {
+	flex-direction: row-reverse;
+	@include media($mobile) {
+		flex-direction: column-reverse;
+	}
+}
+
+.single-blog-grid-swiper {
+	flex: 1;
+	@include media($mobile) {
+		width: 100%;
+	}
+	&__wrapper {
+	}
+
+	&__pagination {
+	}
+}
+
+.single-blog-grid-slide {
+	&__wrapper {
+		min-height: adapt(400, 300);
+	}
+}
